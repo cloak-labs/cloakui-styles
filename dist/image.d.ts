@@ -54,9 +54,11 @@ export declare const imageStyles: (props?: {
         [x: string]: any;
     };
 }) => string;
-export interface ImageVariants extends VariantProps<typeof imageStyles> {
-}
+export type ImageVariants = VariantProps<typeof imageStyles>;
 export declare const imageCaptionStyles: (props?: {
+    variant?: "default" | "showOnHover";
+    align?: "left" | "center";
+} & ({
     class?: string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | any | {
         [x: string]: any;
     })[] | {
@@ -110,4 +112,5 @@ export declare const imageCaptionStyles: (props?: {
     })[] | {
         [x: string]: any;
     };
-}) => string;
+})) => string;
+export type ImageCaptionVariants = VariantProps<typeof imageCaptionStyles>;
