@@ -45,5 +45,8 @@
   "dependencies": {
     "cva": "1.0.0-beta.1",
     "tailwind-merge": "^1.14.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

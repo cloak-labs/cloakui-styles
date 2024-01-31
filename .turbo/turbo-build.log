@@ -1,0 +1,8 @@
+
+> @cloakui/styles@0.0.1 build /home/kaelan/code/agency-workspace/packages/npm/cloakui/styles
+> npm run build-ts
+
+
+> @cloakui/styles@0.0.1 build-ts
+> tsc -p tsconfig.json
+
