@@ -1,6 +1,6 @@
 {
   "name": "@cloakui/styles",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "TailwindCSS presets for styling components in any JS framework.",
   "main": "dist/index",
   "types": "dist/index.d.ts",
