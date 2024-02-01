@@ -14,8 +14,10 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.imageCaptionStyles = exports.imageStyles = exports.separatorStyles = exports.buttonStyles = exports.compose = exports.cx = exports.cva = void 0;
+exports.imageCaptionStyles = exports.imageStyles = exports.separatorStyles = exports.buttonStyles = exports.compose = exports.cx = exports.cva = exports.defineConfig = void 0;
 __exportStar(require("./types"), exports);
+var config_1 = require("./config");
+Object.defineProperty(exports, "defineConfig", { enumerable: true, get: function () { return config_1.defineConfig; } });
 var cva_1 = require("./cva");
 Object.defineProperty(exports, "cva", { enumerable: true, get: function () { return cva_1.cva; } });
 Object.defineProperty(exports, "cx", { enumerable: true, get: function () { return cva_1.cx; } });
