@@ -1,4 +1,11 @@
-import { type CVA, type CX, defineConfig as defineCVAConfig } from "cva";
+import {
+  type CVA,
+  type CX,
+  defineConfig as defineCVAConfig,
+  cva,
+  cx,
+  compose,
+} from "cva";
 import { type Compose } from "./types";
 
 type CloakUI_Config = {
@@ -14,15 +21,9 @@ type CloakUI_API = {
 // Global variables to be set by user via `defineConfig()`:
 let configured = false;
 let api: CloakUI_API = {
-  cva: () => {
-    throw new Error("You must call defineConfig() before using this function.");
-  },
-  cx: () => {
-    throw new Error("You must call defineConfig() before using this function.");
-  },
-  compose: () => {
-    throw new Error("You must call defineConfig() before using this function.");
-  },
+  cva,
+  cx,
+  compose,
 };
 
 /**
@@ -31,10 +32,9 @@ let api: CloakUI_API = {
  * from @cloakui/styles
  */
 const defineConfig = (config?: CloakUI_Config) => {
-  if (configured) return; // can only be configured once
+  if (configured && !config) return;
 
   const { cva, cx, compose } = defineCVAConfig(config?.cvaConfig ?? {});
-
   api = { cva, cx, compose: compose as Compose };
   configured = true;
 };
