@@ -1,11 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.imageCaptionStyles = exports.imageStyles = void 0;
-const cva_1 = require("./cva");
-exports.imageStyles = (0, cva_1.cva)({
+import { cva } from "./cva";
+export const imageStyles = cva({
     base: "peer relative w-full object-cover",
 });
-exports.imageCaptionStyles = (0, cva_1.cva)({
+export const imageCaptionStyles = cva({
     base: "text-sm italic mt-2.5",
     variants: {
         variant: {

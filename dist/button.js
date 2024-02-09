@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.buttonStyles = void 0;
-const cva_1 = require("./cva");
-exports.buttonStyles = (0, cva_1.cva)({
+import { cva } from "./cva";
+export const buttonStyles = cva({
     base: "[text-shadow:none] inline-flex items-center justify-center whitespace-nowrap rounded-sm text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-focus disabled:pointer-events-none disabled:opacity-50",
     variants: {
         variant: {

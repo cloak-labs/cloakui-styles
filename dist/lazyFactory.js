@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.lazyFactory = void 0;
 /**
  * lazyFactory creates a lazy-initialized factory function. It ensures that the
  * factory function is only created once and then caches it for future invocations.
@@ -12,7 +9,7 @@ exports.lazyFactory = void 0;
  * @param {Function} factoryFn - A function that returns a factory function when called.
  * @returns {Function} A new factory function that lazily initializes and caches the original factory function.
  */
-function lazyFactory(factoryFn) {
+export function lazyFactory(factoryFn) {
     let factoryInstance = null;
     let initialized = false;
     // Return a function with the same signature as the factory function
@@ -25,4 +22,3 @@ function lazyFactory(factoryFn) {
         return factoryInstance(...args);
     }; // Cast the function to T to ensure the returned type matches the factory function's type
 }
-exports.lazyFactory = lazyFactory;
