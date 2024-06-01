@@ -1,6 +1,6 @@
 import { type VariantProps } from "cva";
 export declare const buttonStyles: (props?: {
-    variant?: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost";
+    variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
     size?: "default" | "sm" | "lg" | "icon";
 } & ({
     class?: string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | any | {

@@ -13,7 +13,7 @@ export const buttonStyles = cva({
         "text-root border border-root-dim bg-transparent shadow-sm hover:bg-root-dim hover:text-root-dim btn-outline",
       secondary:
         "bg-root-dim text-root-vivid shadow-sm border border-root-dim hover:bg-root-dim/80 btn-secondary",
-      ghost: "hover:bg-root-dim hover:text-root-dim btn-ghost",
+      ghost: "text-root hover:bg-root-dim hover:text-root-dim btn-ghost",
       link: "text-link underline-offset-4 hover:underline btn-link",
     },
     size: {
