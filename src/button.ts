@@ -2,7 +2,7 @@ import { type VariantProps } from "cva";
 import { cva } from "./cva";
 
 export const buttonStyles = cva({
-  base: "[text-shadow:none] inline-flex items-center justify-center whitespace-nowrap rounded-sm text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-focus disabled:pointer-events-none disabled:opacity-50 btn",
+  base: "[text-shadow:none] max-w-fit inline-flex items-center justify-center whitespace-nowrap rounded-sm text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-focus disabled:pointer-events-none disabled:opacity-50 btn",
   variants: {
     size: {
       default: "h-9 px-4 py-2",
