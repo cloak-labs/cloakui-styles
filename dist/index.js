@@ -1,6 +1,6 @@
 export * from "./types";
 export { defineConfig } from "./config";
-export { cva, cx, compose } from "./cva";
+export { cva, cx, compose, cxDeep } from "./cva";
 export { lazyFactory } from "./lazyFactory";
 export { buttonStyles } from "./button";
 export { separatorStyles } from "./separator";

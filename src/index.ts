@@ -1,6 +1,6 @@
 export * from "./types";
 export { defineConfig } from "./config";
-export { cva, cx, compose } from "./cva";
+export { cva, cx, compose, cxDeep } from "./cva";
 export { VariantProps } from "cva";
 export { lazyFactory } from "./lazyFactory";
 
