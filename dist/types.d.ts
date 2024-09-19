@@ -1,7 +1,9 @@
-import { VariantProps } from "cva";
-type ClassValue = ClassArray | ClassDictionary | string | number | null | boolean | undefined;
-type ClassDictionary = Record<string, any>;
-type ClassArray = ClassValue[];
+import { CVA, VariantProps } from "cva";
+import { cx } from "./cva";
+export type ClassValue = Parameters<typeof cx>[0];
+export type ClassObject = {
+    [key: string]: ClassValue | ClassObject;
+};
 type CVAClassProp = {
     class?: ClassValue;
     className?: never;
@@ -16,7 +18,7 @@ type MergeVariantProps<Types extends any[]> = Types extends [
     [K in keyof First | keyof MergeVariantProps<Rest>]: K extends keyof First ? K extends keyof MergeVariantProps<Rest> ? First[K] | Exclude<MergeVariantProps<Rest>[K], First[K]> : First[K] : K extends keyof MergeVariantProps<Rest> ? MergeVariantProps<Rest>[K] : never;
 } : never : never : {};
 export interface Compose {
-    <T extends any[]>(...components: T): (props?: Partial<MergeVariantProps<{
+    <T extends ReturnType<CVA>[]>(...components: T): (props?: Partial<MergeVariantProps<{
         [K in keyof T]: VariantProps<T[K]>;
     }>> & CVAClassProp) => string;
 }

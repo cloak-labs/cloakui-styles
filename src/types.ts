@@ -1,15 +1,9 @@
-import { VariantProps } from "cva";
+import { CVA, VariantProps } from "cva";
+import { cx } from "./cva";
 
-type ClassValue =
-  | ClassArray
-  | ClassDictionary
-  | string
-  | number
-  | null
-  | boolean
-  | undefined;
-type ClassDictionary = Record<string, any>;
-type ClassArray = ClassValue[];
+export type ClassValue = Parameters<typeof cx>[0];
+
+export type ClassObject = { [key: string]: ClassValue | ClassObject };
 
 type CVAClassProp =
   | {
@@ -43,7 +37,7 @@ type MergeVariantProps<Types extends any[]> = Types extends [
   : {};
 
 export interface Compose {
-  <T extends any[]>(...components: T): (
+  <T extends ReturnType<CVA>[]>(...components: T): (
     props?: Partial<MergeVariantProps<{ [K in keyof T]: VariantProps<T[K]> }>> &
       CVAClassProp
   ) => string;
