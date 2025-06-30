@@ -8,11 +8,6 @@ type CloakUI_API = {
     cx: CX;
     compose: Compose;
 };
-/**
- * Define the CloakUI config. You should call this early in the root of your app,
- * before importing utilities from @cloakui/styles or other dependencies that import
- * from @cloakui/styles
- */
 declare const defineConfig: (config?: CloakUI_Config) => void;
-declare const getApi: () => CloakUI_API;
-export { defineConfig, getApi };
+declare const getUserConfiguredApi: () => CloakUI_API;
+export { defineConfig, getUserConfiguredApi };

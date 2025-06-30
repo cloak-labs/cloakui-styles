@@ -1,11 +1,12 @@
-import { getApi } from "./config";
+import { getUserConfiguredApi } from "./config";
 import { CX, type CVA } from "cva";
 import { ClassObject, ClassValue, Compose } from "./types";
 
 // We export wrappers around cva/cx/compose that act as getters for our user-configured cva/cx/compose functions
-export const cva: CVA = (props) => getApi().cva(props);
-export const cx: CX = (...inputs) => getApi().cx(...inputs);
-export const compose: Compose = (...args) => getApi().compose(...args);
+export const cva: CVA = (props) => getUserConfiguredApi().cva(props);
+export const cx: CX = (...inputs) => getUserConfiguredApi().cx(...inputs);
+export const compose: Compose = (...args) =>
+  getUserConfiguredApi().compose(...args);
 
 function isClassObject<T>(obj: any): obj is T {
   return obj && typeof obj === "object" && !Array.isArray(obj);

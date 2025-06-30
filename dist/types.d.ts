@@ -1,5 +1,6 @@
-import { CVA, VariantProps } from "cva";
+import type { CVA, CX, VariantProps } from "cva";
 import { cx } from "./cva";
+export type { CVA, CX };
 export type ClassValue = Parameters<typeof cx>[0];
 export type ClassObject = {
     [key: string]: ClassValue | ClassObject;
@@ -22,4 +23,3 @@ export interface Compose {
         [K in keyof T]: VariantProps<T[K]>;
     }>> & CVAClassProp) => string;
 }
-export {};

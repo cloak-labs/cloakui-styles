@@ -1,11 +1,4 @@
-import {
-  type CVA,
-  type CX,
-  defineConfig as defineCVAConfig,
-  cva,
-  cx,
-  compose,
-} from "cva";
+import { type CVA, type CX, defineConfig as defineCVAConfig } from "cva";
 import { type Compose } from "./types";
 
 type CloakUI_Config = {
@@ -18,33 +11,41 @@ type CloakUI_API = {
   compose: Compose;
 };
 
-// Global variables to be set by user via `defineConfig()`:
-let configured = false;
-let api: CloakUI_API = {
-  cva,
-  cx,
-  compose,
-};
+class ConfigStore {
+  private static instance: ConfigStore;
+  private configured = false;
+  private api: CloakUI_API | null = null;
 
-/**
- * Define the CloakUI config. You should call this early in the root of your app,
- * before importing utilities from @cloakui/styles or other dependencies that import
- * from @cloakui/styles
- */
-const defineConfig = (config?: CloakUI_Config) => {
-  if (configured && !config) return;
+  private constructor() {}
 
-  const { cva, cx, compose } = defineCVAConfig(config?.cvaConfig ?? {});
-  api = { cva, cx, compose: compose as Compose };
-  configured = true;
-};
-
-const getApi = () => {
-  if (!configured) {
-    // user hasn't called defineConfig(), so we do it for them:
-    defineConfig();
+  static getInstance(): ConfigStore {
+    if (!ConfigStore.instance) {
+      ConfigStore.instance = new ConfigStore();
+    }
+    return ConfigStore.instance;
   }
-  return api;
+
+  defineConfig(config?: CloakUI_Config) {
+    if (this.configured && !config) return;
+
+    const { cva, cx, compose } = defineCVAConfig(config?.cvaConfig ?? {});
+    this.api = { cva, cx, compose: compose as Compose };
+    this.configured = true;
+  }
+
+  getApi(): CloakUI_API {
+    if (!this.configured) this.defineConfig();
+    return this.api!;
+  }
+}
+
+// Export a functional API surface (maintaining backward compatibility), but use the singleton class internally
+const defineConfig = (config?: CloakUI_Config) => {
+  ConfigStore.getInstance().defineConfig(config);
 };
 
-export { defineConfig, getApi };
+const getUserConfiguredApi = () => {
+  return ConfigStore.getInstance().getApi();
+};
+
+export { defineConfig, getUserConfiguredApi };

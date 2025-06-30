@@ -1,28 +1,33 @@
-import { defineConfig as defineCVAConfig, cva, cx, compose, } from "cva";
-// Global variables to be set by user via `defineConfig()`:
-let configured = false;
-let api = {
-    cva,
-    cx,
-    compose,
-};
-/**
- * Define the CloakUI config. You should call this early in the root of your app,
- * before importing utilities from @cloakui/styles or other dependencies that import
- * from @cloakui/styles
- */
-const defineConfig = (config) => {
-    if (configured && !config)
-        return;
-    const { cva, cx, compose } = defineCVAConfig(config?.cvaConfig ?? {});
-    api = { cva, cx, compose: compose };
-    configured = true;
-};
-const getApi = () => {
-    if (!configured) {
-        // user hasn't called defineConfig(), so we do it for them:
-        defineConfig();
+import { defineConfig as defineCVAConfig } from "cva";
+class ConfigStore {
+    constructor() {
+        this.configured = false;
+        this.api = null;
     }
-    return api;
+    static getInstance() {
+        if (!ConfigStore.instance) {
+            ConfigStore.instance = new ConfigStore();
+        }
+        return ConfigStore.instance;
+    }
+    defineConfig(config) {
+        if (this.configured && !config)
+            return;
+        const { cva, cx, compose } = defineCVAConfig(config?.cvaConfig ?? {});
+        this.api = { cva, cx, compose: compose };
+        this.configured = true;
+    }
+    getApi() {
+        if (!this.configured)
+            this.defineConfig();
+        return this.api;
+    }
+}
+// Export a functional API surface (maintaining backward compatibility), but use the singleton class internally
+const defineConfig = (config) => {
+    ConfigStore.getInstance().defineConfig(config);
 };
-export { defineConfig, getApi };
+const getUserConfiguredApi = () => {
+    return ConfigStore.getInstance().getApi();
+};
+export { defineConfig, getUserConfiguredApi };
