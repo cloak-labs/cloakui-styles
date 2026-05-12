@@ -10,3 +10,4 @@
  * @returns {Function} A new factory function that lazily initializes and caches the original factory function.
  */
 export declare function lazyFactory<T extends (...args: any[]) => any>(factoryFn: () => T): T;
+//# sourceMappingURL=lazyFactory.d.ts.map

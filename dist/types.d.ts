@@ -23,3 +23,4 @@ export interface Compose {
         [K in keyof T]: VariantProps<T[K]>;
     }>> & CVAClassProp) => string;
 }
+//# sourceMappingURL=types.d.ts.map

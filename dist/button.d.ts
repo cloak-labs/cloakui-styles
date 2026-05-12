@@ -1,7 +1,7 @@
 import { type VariantProps } from "cva";
 export declare const buttonStyles: (props?: {
     size?: "default" | "sm" | "lg" | "icon";
-    variant?: "link" | "default" | "unset" | "destructive" | "outline" | "secondary" | "ghost";
+    variant?: "default" | "unset" | "destructive" | "outline" | "arrow" | "secondary" | "ghost" | "link";
 } & ({
     class?: string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | any | {
         [x: string]: any;
@@ -58,3 +58,4 @@ export declare const buttonStyles: (props?: {
     };
 })) => string;
 export type ButtonVariants = VariantProps<typeof buttonStyles>;
+//# sourceMappingURL=button.d.ts.map

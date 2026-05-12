@@ -18,6 +18,8 @@ export const buttonStyles = cva({
         "bg-destructive text-destructive shadow-sm hover:bg-destructive/90 btn-destructive",
       outline:
         "text-root border border-root-dim bg-transparent shadow-sm hover:bg-root-dim hover:text-root-dim btn-outline",
+      arrow:
+        "text-root border border-root-dim/30 hover:border-root-dim/50 bg-root shadow-sm hover:bg-root-dim hover:text-root-dim dark:bg-root-dim hover:dark:bg-root-muted btn-arrow",
       secondary:
         "bg-root-dim text-root-vivid shadow-sm border border-root-dim hover:bg-root-dim/80 btn-secondary",
       ghost: "text-root px-0 hover:text-root-dim btn-ghost",

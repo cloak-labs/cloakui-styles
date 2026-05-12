@@ -11,3 +11,4 @@ type CloakUI_API = {
 declare const defineConfig: (config?: CloakUI_Config) => void;
 declare const getUserConfiguredApi: () => CloakUI_API;
 export { defineConfig, getUserConfiguredApi };
+//# sourceMappingURL=config.d.ts.map
