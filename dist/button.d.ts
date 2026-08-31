@@ -1,9 +1,9 @@
 import { type VariantProps } from "cva";
 export declare const buttonStyles: (props?: {
     size?: "default" | "sm" | "lg" | "icon";
-    variant?: "default" | "unset" | "destructive" | "outline" | "arrow" | "secondary" | "ghost" | "link";
+    variant?: "link" | "default" | "unset" | "destructive" | "outline" | "arrow" | "secondary" | "ghost";
 } & ({
-    class?: string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | any | {
+    class?: string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | /*elided*/ any | {
         [x: string]: any;
     })[] | {
         [x: string]: any;
@@ -31,7 +31,7 @@ export declare const buttonStyles: (props?: {
     className?: never;
 } | {
     class?: never;
-    className?: string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | any | {
+    className?: string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | (string | number | boolean | /*elided*/ any | {
         [x: string]: any;
     })[] | {
         [x: string]: any;
