@@ -10,7 +10,7 @@
  * @returns {Function} A new factory function that lazily initializes and caches the original factory function.
  */
 export function lazyFactory<T extends (...args: any[]) => any>(
-  factoryFn: () => T
+  factoryFn: () => T,
 ): T {
   let factoryInstance: T | null = null;
   let initialized = false;

@@ -35,7 +35,7 @@ export function cxDeep<T extends ClassObject = ClassObject>(
         if (merged[key]) {
           merged[key] = cx(
             merged[key] as ClassValue,
-            obj[key] as ClassValue
+            obj[key] as ClassValue,
           ) as T[Extract<keyof T, string>];
         } else {
           merged[key] = obj[key];
